@@ -18,13 +18,13 @@ const ProductsCard = () => {
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center m-10'>
                 {
                     data.map((p) => (
-                        <div key={p.id} className="card bg-base-100 w-96 shadow-sm m-5">
+                        <div key={p.id} className="card bg-base-100 w-96 shadow-sm m-5 border-1">
                             <figure>
                                 <img
                                     src={p.thumbnail}
                                     alt="Shoes" />
                             </figure>
-                            <div className="card-body">
+                            <div className="card-body ">
                                 <h2 className="card-title">{p.title}</h2>
                                 <p>{p.description}</p>
                                 <p>{p.price}</p>

@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../context/CartApi'
 
 const Cart = () => {
-    const { cart, removeItem } = useContext(CartContext)
+    const { cart, removeItem, increase, decrease } = useContext(CartContext)
+
+
     return (
 
         <>
@@ -23,6 +25,12 @@ const Cart = () => {
                                 <p>{item.description}</p>
                                 <p>{item.price}</p>
                                 <div className="card-actions justify-end">
+                                    <button className="btn btn-primary" onClick={() => decrease(item.id)} disabled={item.quantity <=1}>-</button>
+
+                                    <span className="font-semibold text-lg">{item.quantity || 1}</span>
+
+                                    <button className="btn btn-primary" onClick={() => increase(item.id)}>+</button>
+
                                     <button className="btn btn-primary" onClick={() => removeItem(item.id)}>remove</button>
                                 </div>
                             </div>
