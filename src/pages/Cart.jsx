@@ -8,9 +8,8 @@ const Cart = () => {
     return (
 
         <>
-            <div className='flex grid-cols-1 md:grid-cols-3 '>
-
-                {/* <h1 className='text-3xl text-center m-5'> Cart </h1> */}
+            <h1 className='text-3xl text-center m-5 '> Cart </h1>
+            <div className='flex grid grid-cols-1 md:grid-cols-3 '>
 
                 {
                     cart.map((item) => (
@@ -25,7 +24,7 @@ const Cart = () => {
                                 <p>{item.description}</p>
                                 <p>{item.price}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary" onClick={() => decrease(item.id)} disabled={item.quantity <=1}>-</button>
+                                    <button className="btn btn-primary" onClick={() => decrease(item.id)} disabled={item.quantity <= 1}>-</button>
 
                                     <span className="font-semibold text-lg">{item.quantity || 1}</span>
 

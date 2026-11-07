@@ -2,13 +2,20 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartApi';
 
+
 const ProductsCard = () => {
     const { addToCart } = useContext(CartContext)
     const [data, setData] = useState([]);
     const fetchData = async () => {
-        const response = await axios.get('https://dummyjson.com/products');
-        console.log(response.data.products)
-        setData(response.data.products)
+        try {
+            const response = await axios.get('https://dummyjson.com/products');
+            // console.log(response.data.products)
+            setData(response.data.products)
+        }
+        catch (error) {
+            console.log(error)
+        }
+
     }
     useEffect(() => {
         fetchData()
