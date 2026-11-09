@@ -9,14 +9,14 @@ const CartProvider = ({ children }) => {
         if (existingItem) {
             setCart((prevCart) =>
                 prevCart.map(item =>
-                    item.id === products.id ? { ...item, quantity: item.quantity + 1 }: item)
+                    item.id === products.id ? { ...item, quantity: item.quantity + 1 } : item)
             );
         }
         else {
             setCart((prevCart) => [
                 ...prevCart,
                 { ...products, quantity: 1 }
-             ]);
+            ]);
 
             toast.success("Item added successfully!");
         }
